@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Clifford Group | Premium Real Estate Australia</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet" />
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    
+    <style>
+        /* ===== RESET & BASE ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1a1a2e;
+            background: #fafaf8;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== TYPOGRAPHY ===== */
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: #5a5a7a;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 48px;
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-block;
+            padding: 14px 36px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            background: transparent;
+        }
+        .btn-gold {
+            background: transparent;
+            color: #5a5a7a;
+            font-weight: 500;
+            border-radius: 25px;
+            border: none;
+            box-shadow: 0 4px 16px rgba(201, 168, 76, 0.25), 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        .btn-gold:hover {
+            background: transparent;
+            transform: translateY(-2px);
+            border-radius: 25px;
+            border: 2px solid #ead292;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background: #1a1a2e;
+            padding: 16px 0;
+            padding-top: 0px;
+            position: sticky;
+            height: 140px;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            border-bottom: 2px solid #c9a84c;
+        }
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .logo-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        .logo-image {
+            height: 180px;
+            width: auto;
+            display: block;
+            object-fit: contain;
+        }
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            align-items: center;
+        }
+        .nav-links a {
+            color: #d0d0e0;
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #c9a84c;
+        }
+        .nav-links .btn {
+            padding: 10px 24px;
+            font-size: 0.85rem;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        .hamburger span {
+            width: 28px;
+            height: 3px;
+            background: #fafaf8;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 400px;
+            color: #ffffff;
+            background-size: cover;
+            background-position: center;
+        }
+        .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('./pic22.jpeg')no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(1px);
+    transform: scale(1.05); /* Prevents blur edge bleeding */
+    z-index: 0;
+}
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        .hero h1 span {
+            color: #c9a84c;
+        }
+        .hero-badges {
+            display: flex;
+            gap: 40px;
+            margin-top: 32px;
+        }
+        .hero-badges div {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: #d0d0e0;
+        }
+        .hero-badges i {
+            color: #c9a84c;
+            font-size: 1.2rem;
+        }
+        .hero-form {
+            background: #fafaf8;
+            color: #1a1a2e;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+        .hero-form h3 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 6px;
+        }
+        .hero-form p {
+            color: #5a5a7a;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+        .hero-form input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            margin-bottom: 14px;
+            font-family: 'Inter', sans-serif;
+            transition: border 0.3s;
+        }
+        .hero-form input:focus {
+            outline: none;
+            border-color: #c9a84c;
+            box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.15);
+        }
+        .hero-form .btn {
+            width: 100%;
+            padding: 16px;
+            font-size: 1.05rem;
+        }
+        .form-disclaimer {
+            font-size: 0.75rem;
+            color: #8a8aaa;
+            text-align: center;
+            margin-top: 12px;
+        }
+        #formFeedback {
+            display: none;
+            margin-top: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* ===== AGENTS ===== */
+        .agents {
+            padding: 80px 0;
+            background: #ffffff;
+        }
+        .agent-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 32px;
+        }
+        .agent-card {
+            text-align: center;
+            padding: 32px 20px;
+            border-radius: 12px;
+            background: #fafaf8;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #eee;
+        }
+        .agent-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+        }
+        .agent-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 16px;
+            border: none;
+        }
+        .agent-card h3 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        .agent-card .title {
+            color: #c9a84c;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin: 4px 0 8px;
+        }
+        .agent-card p {
+            font-size: 0.9rem;
+            color: #5a5a7a;
+            margin-bottom: 12px;
+        }
+        .agent-card .contact-link {
+            color: #1a1a2e;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .agent-card .contact-link i {
+            margin-right: 6px;
+            color: #c9a84c;
+        }
+        .agent-card .contact-link:hover {
+            color: #c9a84c;
+        }
+
+        /* ===== PROPERTIES ===== */
+        .properties {
+            padding: 80px 0;
+            background: #fafaf8;
+        }
+        .carousel-wrapper {
+            position: relative;
+            overflow: hidden;
+            padding: 0 40px;
+        }
+        .carousel-track {
+            display: flex;
+            gap: 24px;
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            will-change: transform;
+        }
+        .property-card {
+            flex: 0 0 calc(33.333% - 16px);
+            min-width: calc(33.333% - 16px);
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #eee;
+        }
+        .property-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08);
+        }
+        .property-card .image {
+            height: 220px;
+            overflow: hidden;
+            background: #ddd;
+            border-radius: 12px 12px 0 0;
+        }
+        .property-card .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .property-card:hover .image img {
+            transform: scale(1.05);
+        }
+        .property-card .details {
+            padding: 20px 24px 24px;
+            background: #fff;
+            border-radius: 0 0 12px 12px;
+            border: 1px solid #eee;
+            border-top: none;
+        }
+        .property-card .price {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #1a1a2e;
+            font-family: 'Playfair Display', serif;
+        }
+        .property-card .address {
+            color: #5a5a7a;
+            font-size: 0.95rem;
+            margin: 4px 0 12px;
+        }
+        .property-card .specs {
+            display: flex;
+            gap: 20px;
+            font-size: 0.9rem;
+            color: #3a3a5a;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+        .property-card .specs i {
+            color: #c9a84c;
+            width: 18px;
+        }
+        .property-card .btn-primary {
+            text-align: center;
+            padding: 12px;
+            font-size: 0.9rem;
+            background: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(201, 168, 76, 0.25), 0 2px 8px rgba(0, 0, 0, 0.08);
+            color: #1a1a2e;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s, transform 0.2s;
+            display: block;
+        }
+        .property-card .btn-primary:hover {
+            transform: translateY(-2px);
+        }
+
+        /* ===== CAROUSEL CONTROLS ===== */
+        .carousel-prev,
+        .carousel-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: none;
+            background: #ffffff;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            font-size: 1.6rem;
+            color: #1a1a2e;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            padding: 0;
+        }
+        .carousel-prev:hover,
+        .carousel-next:hover {
+            background: #8a8aaa;
+            color: #1a1a2e;
+            box-shadow: 0 8px 24px rgba(201, 168, 76, 0.35);
+        }
+        .carousel-prev { left: 0; }
+        .carousel-next { right: 0; }
+        .carousel-prev:disabled,
+        .carousel-next:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 28px;
+        }
+        .carousel-dots .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            padding: 0;
+        }
+        .carousel-dots .dot.active {
+            background: #8a8aaa;
+            transform: scale(1.2);
+        }
+        .carousel-dots .dot:hover {
+            background: #8a8aaa;
+            opacity: 0.7;
+        }
+
+        #viewAllBtn {
+            display: none;
+            background: transparent;
+            margin: 20px auto 0;
+            padding: 14px 36px;
+            color: #1a1a2e;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 16px rgba(201, 168, 76, 0.25), 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        /* ===== CTA BANNER ===== */
+        .cta-banner {
+            background: linear-gradient(135deg, #1a1a2e, #2a2a4a);
+            color: #fafaf8;
+            padding: 64px 0;
+            text-align: center;
+        }
+        .cta-banner h2 {
+            font-size: 2.4rem;
+            margin-bottom: 12px;
+        }
+        .cta-banner h2 span {
+            color: #c9a84c;
+        }
+        .cta-banner p {
+            color: #b0b0d0;
+            max-width: 500px;
+            margin: 0 auto 28px;
+        }
+         
+        .cta-banner .btn-gold:hover {
+            transform: translateY(-2px);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #111122;
+            color: #8a8aaa;
+            padding: 48px 0 32px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 32px;
+             padding-left: 60px;
+        }
+        .footer-grid h4 {
+            color: #fafaf8;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .footer-grid a {
+            color: #8a8aaa;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
+        .footer-grid a:hover {
+            color: #c9a84c;
+        }
+        .footer-bottom {
+            border-top: 1px solid #2a2a4a;
+            padding-top: 24px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #5a5a7a;
+            
+        }
+        .footer-bottom span {
+            color: #c9a84c;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .contact-item {
+           
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            padding: 6px 0;
+        }
+        .contact-item:hover {
+            color: #c9a84c;
+        }
+        .contact-icon {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+            filter: brightness(1) saturate(1);
+            transition: filter 0.3s ease;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .hero h1 { font-size: 2.6rem; }
+            .hero-badges {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .property-card {
+                flex: 0 0 calc(50% - 12px);
+                min-width: calc(50% - 12px);
+            }
+            .carousel-wrapper { padding: 0 32px; }
+            .carousel-prev,
+            .carousel-next {
+                width: 38px;
+                height: 38px;
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header { height: auto; padding: 12px 0; }
+            .logo-image { height: 60px; }
+            
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                padding: 20px 0 10px;
+                gap: 16px;
+                background-color: #2a2a4a;
+                border-radius: 0 0 10px 10px;
+            }
+            .nav-links.open { display: flex; }
+            .hamburger { display: flex; }
+            
+            .hero h1 { font-size: 2rem; }
+            .hero-form { padding: 24px; }
+            .section-title { font-size: 2rem; }
+            
+            .agent-grid { grid-template-columns: 1fr 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+            
+            .carousel-wrapper {
+                padding: 0 16px !important;
+                overflow: hidden;
+            }
+            .carousel-track { gap: 12px !important; }
+            .property-card {
+                flex: 0 0 100% !important;
+                min-width: 100% !important;
+                width: 100% !important;
+                border-radius: 12px !important;
+                border: 1px solid #eee !important;
+                box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06) !important;
+            }
+            .property-card .image {
+                height: 200px;
+                border-radius: 12px 12px 0 0 !important;
+            }
+            .property-card .details {
+                padding: 16px 18px 20px;
+                border: 1px solid #eee !important;
+                border-top: none !important;
+                border-radius: 0 0 12px 12px !important;
+            }
+            .property-card .price { font-size: 1.2rem; }
+            .property-card .specs { gap: 14px; font-size: 0.85rem; }
+            
+            .carousel-prev,
+            .carousel-next {
+                width: 36px;
+                height: 36px;
+                font-size: 1.2rem;
+                background: rgba(255, 255, 255, 0.95);
+                box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+            }
+            .carousel-prev { left: 4px; }
+            .carousel-next { right: 4px; }
+            
+            .carousel-dots { gap: 8px; margin-top: 20px; }
+            .carousel-dots .dot { width: 10px; height: 10px; }
+            
+            #viewAllBtn {
+                display: block !important;
+                margin-top: 15px;
+                margin-bottom: 15px;
+                width: 220px;
+                height: 50px;
+                padding: 14px 36px;
+                border: none;
+                font-weight: 500;
+                cursor: pointer;
+                font-size: 1rem;
+                transition: all 0.3s;
+                background: transparent;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 16px rgba(201, 168, 76, 0.25), 0 2px 8px rgba(0, 0, 0, 0.08);
+                color: #8a8aaa;
+                border-radius: 25px;
+                text-decoration: none;
+            }
+            
+            .full-grid-active .carousel-prev,
+            .full-grid-active .carousel-next,
+            .full-grid-active .carousel-dots {
+                display: none !important;
+            }
+            .full-grid-active .carousel-track {
+                display: grid !important;
+                grid-template-columns: 1fr !important;
+                gap: 24px !important;
+                transform: none !important;
+                transition: none !important;
+                padding: 0;
+            }
+            .full-grid-active .property-card {
+                flex: none !important;
+                min-width: auto !important;
+                width: 100% !important;
+                border-radius: 12px !important;
+                border: 1px solid #eee !important;
+                box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06) !important;
+            }
+            .full-grid-active .property-card .image {
+                border-radius: 12px 12px 0 0 !important;
+            }
+            .full-grid-active .property-card .details {
+                border: 1px solid #eee !important;
+                border-top: none !important;
+                border-radius: 0 0 12px 12px !important;
+            }
+            .full-grid-active .carousel-wrapper {
+                overflow: visible;
+                padding: 0 16px !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header { height: 80px; }
+            .logo-image { height: 80px; }
+            .agent-grid { grid-template-columns: 1fr; }
+            .hero-badges {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            .container { padding: 0 16px; }
+            
+            .carousel-wrapper { padding: 0 12px !important; }
+            .property-card .image { height: 180px; }
+            .property-card .details { padding: 14px 14px 18px; }
+            .property-card .price { font-size: 1.1rem; }
+            .property-card .address { font-size: 0.85rem; }
+            .property-card .specs { gap: 10px; font-size: 0.8rem; }
+            
+            .carousel-prev,
+            .carousel-next {
+                width: 30px;
+                height: 30px;
+                font-size: 1rem;
+            }
+            .carousel-prev { left: 2px; }
+            .carousel-next { right: 2px; }
+            
+            #viewAllBtn {
+                padding: 12px 28px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* ===== ANIMATION ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.6s ease forwards;
+        }
+        .fade-in-delay { animation-delay: 0.2s; }
+        .fade-in-delay-2 { animation-delay: 0.4s; }
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="container nav">
+            <img src="the-clifford-group-logo-removebg-preview.png" alt="The Clifford Group" class="logo-image" />
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#properties">Properties</a></li>
+                <li><a href="#agents">Our Team</a></li>
+                <li><a href="#valuation" class="btn btn-gold" style="padding:10px 24px;font-size:0.85rem;">Free Valuation</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="valuation">
+        <div class="container hero-grid">
+            <div class="fade-in">
+                <h1>Premium Real Estate<br /><span>Across Australia</span></h1>
+                <p>Expert guidance, local insight, and a team that delivers. The Clifford Group – where your property journey meets excellence.</p>
+                <div class="hero-badges">
+                    <div><i class="fas fa-check-circle"></i> 200+ homes sold</div>
+                    <div><i class="fas fa-award"></i> #1 rated team</div>
+                    <div><i class="fas fa-users"></i> 3 dedicated agents</div>
+                </div>
+            </div>
+
+            <div class="hero-form fade-in fade-in-delay">
+                <h3>📊 Free Home Valuation</h3>
+                <p>Find out what your property is worth in today's market – no obligation.</p>
+                <form id="valuationForm">
+                    <input type="text" id="fullName" name="name" placeholder="Full name" required />
+                    <input type="email" id="email" name="email" placeholder="Email address" required />
+                    <input type="tel" id="phone" name="phone" placeholder="Phone number" required />
+                    <input type="text" id="propertyAddress" name="address" placeholder="Property address" required />
+                    <button type="button" name="submit" class="btn btn-gold" onclick="submitForm()">Get My Free Valuation</button>
+                    <div class="form-disclaimer">Your data is secure. We'll never spam you.</div>
+                </form>
+                <div id="formFeedback"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROPERTIES ===== -->
+    <section class="properties" id="properties">
+        <div class="container">
+            <h2 class="section-title">Featured Properties</h2>
+            <p class="section-subtitle">Handpicked listings across Australia's most sought-after markets.</p>
+
+            <div class="carousel-wrapper">
+                <div class="carousel-track" id="propertyTrack">
+                    <!-- Property 1 -->
+                    <div class="property-card">
+                        <div class="image"><img src="pic2.webp" alt="luxury"></div>
+                        <div class="details">
+                            <div class="price">$2,295,000</div>
+                            <div class="address">10 St Simon Place, Sydney NSW 2154</div>
+                            <div class="specs">
+                                <span><i class="fas fa-bed"></i> 5</span>
+                                <span><i class="fas fa-bath"></i> 3</span>
+                                <span><i class="fas fa-car"></i> 2</span>
+                                <span><i class="fas fa-ruler-combined"></i> 386m²</span>
+                            </div>
+                            <a href="#" class="btn btn-primary">Schedule a Viewing</a>
+                        </div>
+                    </div>
+
+                    <!-- Property 2 -->
+                    <div class="property-card">
+                        <div class="image"><img src="PIC3.webp" alt="family home"></div>
+                        <div class="details">
+                            <div class="price">$890,000</div>
+                            <div class="address">Lot 1/55 Terry RD, Eastwood, NSW 2122</div>
+                            <div class="specs">
+                                <span><i class="fas fa-bed"></i> 5</span>
+                                <span><i class="fas fa-bath"></i> 5</span>
+                                <span><i class="fas fa-car"></i> 1</span>
+                                <span><i class="fas fa-ruler-combined"></i> 506m²</span>
+                            </div>
+                            <a href="#" class="btn btn-primary">Schedule a Viewing</a>
+                        </div>
+                    </div>
+
+                    <!-- Property 3 -->
+                    <div class="property-card">
+                        <div class="image"><img src="PIC1.webp" alt="Harbour View"></div>
+                        <div class="details">
+                            <div class="price">$2,850,000</div>
+                            <div class="address">68 Algernon Street, Oatley, NSW 2223</div>
+                            <div class="specs">
+                                <span><i class="fas fa-bed"></i> 5</span>
+                                <span><i class="fas fa-bath"></i> 3</span>
+                                <span><i class="fas fa-car"></i> 2</span>
+                                <span><i class="fas fa-ruler-combined"></i> 1400m²</span>
+                            </div>
+                            <a href="#" class="btn btn-primary">Schedule a Viewing</a>
+                        </div>
+                    </div>
+
+                    <!-- Property 4 -->
+                    <div class="property-card">
+                        <div class="image"><img src="PIC4.webp" alt="Property"></div>
+                        <div class="details">
+                            <div class="price">$1,650,000</div>
+                            <div class="address">4 Stanhope RD, Killara, NSW 2071</div>
+                            <div class="specs">
+                                <span><i class="fas fa-bed"></i> 5</span>
+                                <span><i class="fas fa-bath"></i> 5</span>
+                                <span><i class="fas fa-car"></i> 3</span>
+                                <span><i class="fas fa-ruler-combined"></i> 1657m²</span>
+                            </div>
+                            <a href="#" class="btn btn-primary">Schedule a Viewing</a>
+                        </div>
+                    </div>
+
+                    <!-- Property 5 -->
+                    <div class="property-card">
+                        <div class="image"><img src="PIC5.webp" alt="Property"></div>
+                        <div class="details">
+                            <div class="price">$1,355,000</div>
+                            <div class="address">11 Bangalla St, Warrawee, NSW 2074</div>
+                            <div class="specs">
+                                <span><i class="fas fa-bed"></i> 5</span>
+                                <span><i class="fas fa-bath"></i> 4</span>
+                                <span><i class="fas fa-car"></i> 2</span>
+                                <span><i class="fas fa-ruler-combined"></i> 805m²</span>
+                            </div>
+                            <a href="#" class="btn btn-primary">Schedule a Viewing</a>
+                        </div>
+                    </div>
+
+                    <!-- Property 6 -->
+                    <div class="property-card">
+                        <div class="image"><img src="pic6.webp" alt="Property"></div>
+                        <div class="details">
+                            <div class="price">$2,170,000</div>
+                            <div class="address">104 The Terrance, Windsor, NSW 2756</div>
+                            <div class="specs">
+                                <span><i class="fas fa-bed"></i> 5</span>
+                                <span><i class="fas fa-bath"></i> 6</span>
+                                <span><i class="fas fa-car"></i> 2</span>
+                                <span><i class="fas fa-ruler-combined"></i> 572m²</span>
+                            </div>
+                            <a href="#" class="btn btn-primary">Schedule a Viewing</a>
+                        </div>
+                    </div>
+
+                    <!-- Property 7 -->
+                    <div class="property-card">
+                        <div class="image"><img src="pic7.webp" alt="Property"></div>
+                        <div class="details">
+                            <div class="price">$2,319,000</div>
+                            <div class="address">47 Tunks St Northbridge NSW 2063</div>
+                            <div class="specs">
+                                <span><i class="fas fa-bed"></i> 6</span>
+                                <span><i class="fas fa-bath"></i> 4</span>
+                                <span><i class="fas fa-car"></i> 4</span>
+                                <span><i class="fas fa-ruler-combined"></i> 809m²</span>
+                            </div>
+                            <a href="#" class="btn btn-primary">Schedule a Viewing</a>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="carousel-prev" id="carouselPrev">‹</button>
+                <button class="carousel-next" id="carouselNext">›</button>
+
+                <div class="carousel-dots">
+                    <span class="dot active" data-index="0"></span>
+                    <span class="dot" data-index="1"></span>
+                    <span class="dot" data-index="2"></span>
+                    <span class="dot" data-index="3"></span>
+                 <span class="dot" data-index="4"></span>
+                  <span class="dot" data-index="5" ></span>
+                   <span class="dot" data-index="6" ></span>
+            </div>
+            <!-- View All Toggle Button -->
+<button id="viewAllBtn">
+    View All Properties
+</button>
+<div id="fullGrid" style="display:none;margin-top:24px;"></div>
+        </div>
+    </div>
+</section>
+
+    <!-- ===== AGENTS ===== -->
+    <section class="agents" id="agents">
+        <div class="container">
+            <h2 class="section-title">Meet The Clifford Group</h2>
+            <p class="section-subtitle">Experts who know your market inside out.</p>
+
+            <div class="agent-grid">
+                <!-- David -->
+                <div class="agent-card fade-in">
+                    <img src="pic8.png" alt="David Clifford" />
+                    <h3>David Clifford</h3>
+                    <div class="title">Team Leader / Director</div>
+                    <p>15+ years in Australian real estate. Specialises in luxury waterfront and prestige properties.</p>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=:Cliffordgroup05@gmail.com" class="contact-link"><i class="fas fa-envelope"></i> Clifordgroup05@gmail.com</a>
+                </div>
+
+                <!-- Jane -->
+                <div class="agent-card fade-in fade-in-delay">
+                    <img src="pic.jpeg" alt="Sharon Romine" />
+                    <h3>Sharon Romine</h3>
+                    <div class="title">Senior Agent</div>
+                    <p>First-home buyers &amp; family homes. Known for her patience, honesty, and negotiation skills.</p>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=:Sharonromine53@gmail.com" class="contact-link"><i class="fas fa-envelope"></i> Sharonromine53@gmail.com</a>
+                </div>
+
+                <!-- Michael -->
+                <div class="agent-card fade-in fade-in-delay-2">
+                    <img src="pic9.png" alt="Scott Stephen" />
+                    <h3>Scott Stephen</h3>
+                    <div class="title">Investment Specialist</div>
+                    <p>Commercial &amp; multi-family residential. Data-driven analysis for high-yield portfolios.</p>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=:michael@cliffordgroup.com.au" class="contact-link"><i class="fas fa-envelope"></i> Scott@cliffordgroup.com.au</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA BANNER ===== -->
+    <section class="cta-banner">
+        <div class="container">
+            <h2>Ready to find your <span>dream home</span>?</h2>
+            <p>Book a no-obligation consultation with our team today. We'll match you with the perfect agent.</p>
+            <a href="#valuation" class="btn btn-gold">Get Started Now</a>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="footer-contact">
+            <div class="footer-grid">
+                <div>
+                    <h4>The Clifford Group</h4>
+                    <p style="color:#5a5a7a;max-width:300px;">Premium real estate services across Australia. Built on trust, delivered with excellence.</p>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <a href="#properties">Properties</a>
+                    <a href="#agents">Our Team</a>
+                    <a href="#valuation">Free Valuation</a>
+                </div>
+                
+        
+        
+            
+            <!-- Contact (NEW & IMPROVED) -->
+            <div>
+                <h4>Contact</h4>
+                <div class="contact-links">
+                    <a href="tel:+1 (365) 955-9242" class="contact-item">
+                        <img src="viber (2).png" alt="Phone icon" class="contact-icon" />
+                        <span>+1 (365) 955-9242</span>
+                    </a>
+                    <a href="https://www.facebook.com/share/1AsrsYLQGN/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="contact-item">
+                        <img src="facebook.png" alt="Facebook icon" class="contact-icon" />
+                        <span>Facebook</span>
+                    </a>
+                    <a href="https://wa.me/13659559242">
+                        <img src="social.png" alt="WhatsApp icon" class="contact-icon"/>
+                        <span>WhatsApp</span></a>
+                </div>
+            </div>
+        </div>
+            </div>
+            <div class="footer-bottom">
+    &copy; 2016 - 2026 <span>The Clifford Group</span>. All rights reserved. Licensed Real Estate Agents – Australia.
+</div>
+        </div>
+    </footer>
+    <script>
+    // ===== MOBILE HAMBURGER MENU =====
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+
+hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+});
+
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+    });
+});
+
+// ===== PROPERTY CAROUSEL =====
+const track = document.getElementById('propertyTrack');
+const prevBtn = document.getElementById('carouselPrev');
+const nextBtn = document.getElementById('carouselNext');
+const dots = document.querySelectorAll('.carousel-dots .dot');
+const viewAllBtn = document.getElementById('viewAllBtn');
+const carouselWrapper = document.querySelector('.carousel-wrapper');
+
+let currentIndex = 0;
+let slidesPerView = 3;
+const totalSlides = document.querySelectorAll('.property-card').length;
+let isFullGrid = false;
+
+function getSlidesPerView() {
+    if (isFullGrid) return totalSlides;
+    if (window.innerWidth < 768) return 1;
+    if (window.innerWidth < 1024) return 2;
+    return 3;
+}
+
+function getGap() {
+    if (isFullGrid) return 24;
+    if (window.innerWidth < 768) return 12;
+    return 24;
+}
+
+function updateCarousel() {
+    slidesPerView = getSlidesPerView();
+    const gap = getGap();
+    
+    const card = track.querySelector('.property-card');
+    if (!card) return;
+    
+    let cardWidth = card.offsetWidth;
+    
+    if (window.innerWidth < 768 && !isFullGrid) {
+        const wrapperPadding = 16;
+        const availableWidth = track.parentElement.offsetWidth - (wrapperPadding * 2);
+        cardWidth = availableWidth;
+    }
+    
+    const maxIndex = Math.max(0, totalSlides - slidesPerView);
+    
+    if (currentIndex > maxIndex) currentIndex = maxIndex;
+    if (currentIndex < 0) currentIndex = 0;
+    
+    let offset = 0;
+    if (!isFullGrid) {
+        offset = -currentIndex * (cardWidth + gap);
+    }
+    track.style.transform = 'translateX(' + offset + 'px)';
+    
+    dots.forEach(function(dot) {
+        const index = parseInt(dot.getAttribute('data-index'));
+        if (index === currentIndex) {
+            dot.classList.add('active');
+            dot.style.background = '#c9a84c';
+        } else {
+            dot.classList.remove('active');
+            dot.style.background = '#ddd';
+        }
+    });
+    
+    if (isFullGrid || currentIndex === 0) {
+        prevBtn.style.display = 'none';
+    } else {
+        prevBtn.style.display = 'flex';
+    }
+    
+    if (isFullGrid || currentIndex >= maxIndex) {
+        nextBtn.style.display = 'none';
+    } else {
+        nextBtn.style.display = 'flex';
+    }
+}
+
+nextBtn.addEventListener('click', function() {
+    if (isFullGrid) return;
+    const maxIndex = Math.max(0, totalSlides - getSlidesPerView());
+    if (currentIndex < maxIndex) {
+        currentIndex++;
+        updateCarousel();
+    }
+});
+
+prevBtn.addEventListener('click', function() {
+    if (isFullGrid) return;
+    if (currentIndex > 0) {
+        currentIndex--;
+        updateCarousel();
+    }
+});
+
+dots.forEach(function(dot) {
+    dot.addEventListener('click', function() {
+        if (isFullGrid) return;
+        currentIndex = parseInt(this.getAttribute('data-index'));
+        updateCarousel();
+    });
+});
+
+if (viewAllBtn) {
+    viewAllBtn.addEventListener('click', function() {
+        isFullGrid = !isFullGrid;
+        
+        if (isFullGrid) {
+            carouselWrapper.classList.add('full-grid-active');
+            this.textContent = 'Show Carousel';
+            this.style.background = '#1a1a2e';
+            this.style.color = '#fafaf8';
+            currentIndex = 0;
+            updateCarousel();
+        } else {
+            carouselWrapper.classList.remove('full-grid-active');
+            this.textContent = 'View All Properties';
+            this.style.background = '#c9a84c';
+            this.style.color = '#1a1a2e';
+            currentIndex = 0;
+            updateCarousel();
+        }
+    });
+}
+
+let resizeTimer;
+window.addEventListener('resize', function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function() {
+        updateCarousel();
+    }, 250);
+});
+
+window.addEventListener('load', function() {
+    setTimeout(updateCarousel, 300);
+});
+
+setTimeout(updateCarousel, 100);
+
+// ===== VALUATION FORM - FORMSPREE INTEGRATION =====
+function submitForm() {
+    const name = document.getElementById('fullName').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const address = document.getElementById('propertyAddress').value.trim();
+    const feedback = document.getElementById('formFeedback');
+    
+    // Validation
+    if (!name || !email || !phone || !address) {
+        feedback.style.display = 'block';
+        feedback.style.color = '#e74c3c';
+        feedback.textContent = '⚠️ All fields are required.';
+        return;
+    }
+    
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+        feedback.style.display = 'block';
+        feedback.style.color = '#e74c3c';
+        feedback.textContent = '⚠️ Please enter a valid email address.';
+        return;
+    }
+    
+    const phonePattern = /^[\d\s\+\(\)\-]{8,20}$/;
+    if (!phonePattern.test(phone)) {
+        feedback.style.display = 'block';
+        feedback.style.color = '#e74c3c';
+        feedback.textContent = '⚠️ Please enter a valid phone number.';
+        return;
+    }
+    
+    // Submit to Formspree
+    const submitBtn = document.querySelector('#valuationForm button');
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
+    submitBtn.style.opacity = '0.7';
+    
+    const form = document.getElementById('valuationForm');
+    const formData = new FormData(form);
+    
+    fetch('https://formspree.io/f/xbdvqnwe', {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'Accept': 'application/json'
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            feedback.style.display = 'block';
+            feedback.style.color = '#27ae60';
+            feedback.textContent = '✅ Thank you! David will contact you within 24 hours with your valuation.';
+            form.reset();
+            
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+            submitBtn.style.opacity = '1';
+            
+            setTimeout(() => {
+                feedback.style.display = 'none';
+            }, 8000);
+        } else {
+            return response.json().then(data => {
+                if (data.errors) {
+                    feedback.style.display = 'block';
+                    feedback.style.color = '#e74c3c';
+                    feedback.textContent = data.errors.map(error => error.message).join(', ');
+                } else {
+                    throw new Error('Something went wrong');
+                }
+            });
+        }
+    })
+    .catch(error => {
+        console.error('Form submission error:', error);
+        feedback.style.display = 'block';
+        feedback.style.color = '#e74c3c';
+        feedback.textContent = '⚠️ Something went wrong. Please try again or call us directly.';
+        
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = '1';
+    });
+}
+
+console.log('🏠 The Clifford Group – site loaded.');
+console.log('📊 Free valuation form ready. Agents: David, Sharon, Scott.');
+</script>
+</body>
+</html>
