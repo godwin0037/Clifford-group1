@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Clifford Group | Premium Real Estate Australia</title>
-    <meta name="description" content="The Clifford Group – premium real estate services across Australia. Expert agents helping you buy, sell, and invest with confidence." />
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -15,1080 +14,743 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     
     <style>
-       /* ===== COLOR PALETTE ===== */
-:root {
-    --primary: #1a2e2a;
-    --primary-light: #2a4a3a;
-    --primary-dark: #0e1e1a;
-    --accent: #c9a84c;
-    --accent-hover: #b8973a;
-    --accent-light: #ead9a2;
-    --background: #f8f5ef;
-    --background-alt: #f0ece4;
-    --card-bg: #ffffff;
-    --text-primary: #1a2e2a;
-    --text-secondary: #4a5a50;
-    --text-muted: #8a9a8a;
-    --border: #d8d4cc;
-    --shadow: rgba(201, 168, 76, 0.15);
-    --shadow-hover: rgba(201, 168, 76, 0.3);
-}
+        /* ===== RESET & BASE ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1a1a2e;
+            background: #fafaf8;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
 
-/* ===== RESET & BASE ===== */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-    font-family: 'Inter', sans-serif;
-    color: var(--text-primary);
-    background: var(--background);
-    line-height: 1.6;
-}
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
-}
+        /* ===== TYPOGRAPHY ===== */
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: #5a5a7a;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 48px;
+        }
 
-/* ===== TYPOGRAPHY ===== */
-h1, h2, h3 {
-    font-family: 'Playfair Display', serif;
-    font-weight: 600;
-    letter-spacing: -0.02em;
-}
-.section-title {
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 12px;
-    color: var(--text-primary);
-}
-.section-subtitle {
-    text-align: center;
-    color: var(--text-secondary);
-    font-size: 1.1rem;
-    max-width: 600px;
-    margin: 0 auto 48px;
-}
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-block;
+            padding: 14px 36px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            background: transparent;
+        }
+        .btn-gold {
+            background: transparent;
+            color: #5a5a7a;
+            font-weight: 500;
+            border-radius: 25px;
+            border: none;
+            box-shadow: 0 4px 16px rgba(201, 168, 76, 0.25), 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        .btn-gold:hover {
+            background: transparent;
+            transform: translateY(-2px);
+            border-radius: 25px;
+            border: 2px solid #ead292;
+        }
 
-/* ===== BUTTONS - ALL TRANSPARENT WITH GOLD SHADOW ===== */
-.btn {
-    display: inline-block;
-    padding: 14px 36px;
-    border: none;
-    border-radius: 25px;
-    font-weight: 600;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    background: transparent;
-    color: var(--text-primary);
-    box-shadow: 0 4px 16px rgba(201, 168, 76, 0.2), 0 2px 8px rgba(0, 0, 0, 0.06);
-}
-.btn:hover {
-    transform: translateY(-3px);
-    border:1px solid rgba(201, 168, 76, 0.7);
-    box-shadow: 0 8px 28px rgba(201, 168, 76, 0.35), 0 4px 12px rgba(0, 0, 0, 0.08);
-}
+        /* ===== HEADER ===== */
+        header {
+            background: #1a1a2e;
+            padding: 16px 0;
+            padding-top: 0px;
+            position: sticky;
+            height: 140px;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            border-bottom: 2px solid #c9a84c;
+        }
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .logo-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        .logo-image {
+            height: 180px;
+            width: auto;
+            display: block;
+            object-fit: contain;
+        }
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            align-items: center;
+        }
+        .nav-links a {
+            color: #d0d0e0;
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #c9a84c;
+        }
+        .nav-links .btn {
+            padding: 10px 24px;
+            font-size: 0.85rem;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        .hamburger span {
+            width: 28px;
+            height: 3px;
+            background: #fafaf8;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
 
-/* Navigation button (special - lighter) */
-.nav-btn {
-    background: transparent;
-    color: #d0d8d0;
-    font-weight: 500;
-    border-radius: 25px;
-    border: 2px solid rgba(201, 168, 76, 0.2);
-    box-shadow: 0 4px 16px rgba(201, 168, 76, 0.15), 0 2px 8px rgba(0, 0, 0, 0.06);
-}
-.nav-btn:hover {
-    background: rgba(201, 168, 76, 0.08);
-    transform: translateY(-2px);
-    border-color: rgba(201, 168, 76, 0.5);
-    color: #ffffff;
-    box-shadow: 0 8px 24px rgba(201, 168, 76, 0.3);
-}
-
-/* ===== HEADER ===== */
-header {
-    background: var(--primary);
-    padding: 12px 0;
-    position: sticky;
-    top: 0;
-    left: 0;
-    z-index: 100;
-    border-bottom: 3px solid var(--accent);
-}
-.nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-}
-.logo-image {
-    height: 70px;
-    width: auto;
-    display: block;
-    object-fit: contain;
-}
-.nav-links {
-    display: flex;
-    gap: 32px;
-    list-style: none;
-    align-items: center;
-}
-.nav-links a {
-    color: #d0d8d0;
-    text-decoration: none;
-    font-weight: 400;
-    font-size: 0.95rem;
-    transition: color 0.3s;
-}
-.nav-links a:hover {
-    color: var(--accent);
-}
-.nav-links .btn {
-    padding: 10px 24px;
-    font-size: 0.85rem;
-    color: #d0d8d0;
-    border-color: rgba(201, 168, 76, 0.2);
-}
-.nav-links .btn:hover {
-    color: #ffffff;
-}
-.hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-.hamburger span {
-    width: 28px;
-    height: 3px;
-    background: #fafaf8;
-    border-radius: 2px;
-    transition: 0.3s;
-}
-
-/* ===== HERO ===== */
-.hero {
-    position: relative;
-    min-height: 500px;
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-}
-.hero::before {
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 400px;
+            color: #ffffff;
+            background-size: cover;
+            background-position: center;
+        }
+        .hero::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: url('./pic22.jpeg') no-repeat center center/cover;
-    filter: blur(2px);
-    transform: scale(1.05);
+    background: url('./pic22.jpeg')no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(1px);
+    transform: scale(1.05); /* Prevents blur edge bleeding */
     z-index: 0;
 }
-.hero::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(26, 46, 42, 0.6);
-    z-index: 1;
-}
-.hero-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-    position: relative;
-    z-index: 2;
-    padding: 60px 0;
-}
-.hero h1 span {
-    color: var(--accent);
-}
-.hero p {
-    color: #d0d8d0;
-}
-.hero-badges {
-    display: flex;
-    gap: 40px;
-    margin-top: 32px;
-}
-.hero-badges div {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 0.9rem;
-    color: #d0d8d0;
-}
-.hero-badges i {
-    color: var(--accent);
-    font-size: 1.2rem;
-}
-.hero-form {
-    background: var(--card-bg);
-    color: var(--text-primary);
-    padding: 40px;
-    border-radius: 16px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-}
-.hero-form h3 {
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: 1.2rem;
-    margin-bottom: 6px;
-}
-.hero-form p {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-    margin-bottom: 20px;
-}
-.hero-form input {
-    width: 100%;
-    padding: 14px 16px;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    font-size: 1rem;
-    margin-bottom: 14px;
-    font-family: 'Inter', sans-serif;
-    transition: border 0.3s;
-}
-.hero-form input::placeholder {
-    color: var(--text-muted);
-    font-weight: 300;
-}
-.hero-form input:focus {
-    outline: none;
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.15);
-}
-.hero-form .btn {
-    width: 100%;
-    padding: 16px;
-    font-size: 1.05rem;
-}
-.form-disclaimer {
-    font-size: 0.75rem;
-    color: var(--text-muted);
-    text-align: center;
-    margin-top: 12px;
-}
-#formFeedback {
-    display: none;
-    margin-top: 12px;
-    font-weight: 600;
-    font-size: 0.95rem;
-}
 
-/* ===== STATISTICS ===== */
-.stats {
-    background: var(--primary);
-    color: #ffffff;
-    padding: 60px 0;
-}
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
-    text-align: center;
-}
-.stat-number {
-    font-size: 3rem;
-    font-weight: 700;
-    font-family: 'Playfair Display', serif;
-    color: var(--accent);
-}
-.stat-label {
-    display: block;
-    font-size: 1rem;
-    color: #b0c0b0;
-    margin-top: 8px;
-}
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        .hero h1 span {
+            color: #c9a84c;
+        }
+        .hero-badges {
+            display: flex;
+            gap: 40px;
+            margin-top: 32px;
+        }
+        .hero-badges div {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: #d0d0e0;
+        }
+        .hero-badges i {
+            color: #c9a84c;
+            font-size: 1.2rem;
+        }
+        .hero-form {
+            background: #fafaf8;
+            color: #1a1a2e;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+        .hero-form h3 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 6px;
+        }
+        .hero-form p {
+            color: #5a5a7a;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+        .hero-form input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            margin-bottom: 14px;
+            font-family: 'Inter', sans-serif;
+            transition: border 0.3s;
+        }
+        .hero-form input:focus {
+            outline: none;
+            border-color: #c9a84c;
+            box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.15);
+        }
+        .hero-form .btn {
+            width: 100%;
+            padding: 16px;
+            font-size: 1.05rem;
+        }
+        .form-disclaimer {
+            font-size: 0.75rem;
+            color: #8a8aaa;
+            text-align: center;
+            margin-top: 12px;
+        }
+        #formFeedback {
+            display: none;
+            margin-top: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
 
-/* ===== AGENTS ===== */
-.agents {
-    padding: 80px 0;
-    background: var(--background);
-}
-.agent-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 32px;
-}
-.agent-card {
-    text-align: center;
-    padding: 32px 20px;
-    border-radius: 12px;
-    background: var(--card-bg);
-    transition: transform 0.3s, box-shadow 0.3s;
-    border: 1px solid var(--border);
-}
-.agent-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 40px rgba(201, 168, 76, 0.15);
-}
-.agent-card img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 16px;
-    border: none;
-}
-.agent-card h3 {
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: 1.1rem;
-}
-.agent-card .title {
-    color: var(--accent);
-    font-weight: 600;
-    font-size: 0.85rem;
-    margin: 4px 0 8px;
-}
-.agent-card p {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    margin-bottom: 12px;
-}
-.agent-card .contact-link {
-    color: var(--text-primary);
-    font-weight: 600;
-    text-decoration: none;
-    font-size: 0.9rem;
-}
-.agent-card .contact-link i {
-    margin-right: 6px;
-    color: var(--accent);
-}
-.agent-card .contact-link:hover {
-    color: var(--accent);
-}
+        /* ===== AGENTS ===== */
+        .agents {
+            padding: 80px 0;
+            background: #ffffff;
+        }
+        .agent-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 32px;
+        }
+        .agent-card {
+            text-align: center;
+            padding: 32px 20px;
+            border-radius: 12px;
+            background: #fafaf8;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #eee;
+        }
+        .agent-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+        }
+        .agent-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 16px;
+            border: none;
+        }
+        .agent-card h3 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        .agent-card .title {
+            color: #c9a84c;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin: 4px 0 8px;
+        }
+        .agent-card p {
+            font-size: 0.9rem;
+            color: #5a5a7a;
+            margin-bottom: 12px;
+        }
+        .agent-card .contact-link {
+            color: #1a1a2e;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .agent-card .contact-link i {
+            margin-right: 6px;
+            color: #c9a84c;
+        }
+        .agent-card .contact-link:hover {
+            color: #c9a84c;
+        }
 
-/* ===== PROPERTIES ===== */
-.properties {
-    padding: 80px 0;
-    background: var(--background-alt);
-}
-.carousel-wrapper {
-    position: relative;
-    overflow: hidden;
-    padding: 0 40px;
-}
-.carousel-track {
-    display: flex;
-    gap: 24px;
-    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    will-change: transform;
-}
-.property-card {
-    flex: 0 0 calc(33.333% - 16px);
-    min-width: calc(33.333% - 16px);
-    background: var(--card-bg);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 16px rgba(201, 168, 76, 0.08);
-    transition: transform 0.3s, box-shadow 0.3s;
-    border: 1px solid var(--border);
-    position: relative;
-}
-.property-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 16px 48px rgba(201, 168, 76, 0.15);
-}
-.property-card .image {
-    height: 220px;
-    overflow: hidden;
-    background: #ddd;
-    border-radius: 12px 12px 0 0;
-    position: relative;
-}
-.property-card .image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-    opacity: 0;
-    animation: fadeInImage 0.6s ease forwards;
-}
-@keyframes fadeInImage {
-    to { opacity: 1; }
-}
-.property-card:hover .image img {
-    transform: scale(1.05);
-}
-.property-card .badge {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    padding: 4px 14px;
-    border-radius: 20px;
-    font-size: 0.7rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    z-index: 2;
-}
-.badge-sold { background: #c0392b; color: #fff; }
-.badge-under-offer { background: #e67e22; color: #fff; }
-.badge-new { background: #27ae60; color: #fff; }
-.badge-featured { background: var(--accent); color: #fff; }
-.property-card .details {
-    padding: 20px 24px 24px;
-    background: var(--card-bg);
-    border-radius: 0 0 12px 12px;
-    border: 1px solid var(--border);
-    border-top: none;
-}
-.property-card .price {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    font-family: 'Playfair Display', serif;
-}
-.property-card .address {
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-    margin: 4px 0 12px;
-}
-.property-card .specs {
-    display: flex;
-    gap: 20px;
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    margin-bottom: 16px;
-    flex-wrap: wrap;
-}
-.property-card .specs i {
-    color: var(--accent);
-    width: 18px;
-}
-.property-card .btn-primary {
-    text-align: center;
-    padding: 12px;
-    font-size: 0.9rem;
-    background: transparent;
-    color: var(--text-primary);
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: 600;
-    border:none;
-    box-shadow: 0 4px 16px rgba(201, 168, 76, 0.2);
-    transition: all 0.3s ease;
-    display: block;
-}
-.property-card .btn-primary:hover {
-    background: rgba(201, 168, 76, 0.08);
-    transform: translateY(-3px);
-    border-color: rgba(201, 168, 76, 0.7);
-    box-shadow: 0 8px 28px rgba(201, 168, 76, 0.35);
-}
+        /* ===== PROPERTIES ===== */
+        .properties {
+            padding: 80px 0;
+            background: #fafaf8;
+        }
+        .carousel-wrapper {
+            position: relative;
+            overflow: hidden;
+            padding: 0 40px;
+        }
+        .carousel-track {
+            display: flex;
+            gap: 24px;
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            will-change: transform;
+        }
+        .property-card {
+            flex: 0 0 calc(33.333% - 16px);
+            min-width: calc(33.333% - 16px);
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #eee;
+        }
+        .property-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08);
+        }
+        .property-card .image {
+            height: 220px;
+            overflow: hidden;
+            background: #ddd;
+            border-radius: 12px 12px 0 0;
+        }
+        .property-card .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .property-card:hover .image img {
+            transform: scale(1.05);
+        }
+        .property-card .details {
+            padding: 20px 24px 24px;
+            background: #fff;
+            border-radius: 0 0 12px 12px;
+            border: 1px solid #eee;
+            border-top: none;
+        }
+        .property-card .price {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #1a1a2e;
+            font-family: 'Playfair Display', serif;
+        }
+        .property-card .address {
+            color: #5a5a7a;
+            font-size: 0.95rem;
+            margin: 4px 0 12px;
+        }
+        .property-card .specs {
+            display: flex;
+            gap: 20px;
+            font-size: 0.9rem;
+            color: #3a3a5a;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+        .property-card .specs i {
+            color: #c9a84c;
+            width: 18px;
+        }
+        .property-card .btn-primary {
+            text-align: center;
+            padding: 12px;
+            font-size: 0.9rem;
+            background: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(201, 168, 76, 0.25), 0 2px 8px rgba(0, 0, 0, 0.08);
+            color: #1a1a2e;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s, transform 0.2s;
+            display: block;
+        }
+        .property-card .btn-primary:hover {
+            transform: translateY(-2px);
+        }
 
-/* ===== CAROUSEL CONTROLS ===== */
-.carousel-prev,
-.carousel-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    border: 2px solid rgba(201, 168, 76, 0.2);
-    background: transparent;
-    box-shadow: 0 4px 16px rgba(201, 168, 76, 0.15);
-    cursor: pointer;
-    font-size: 1.6rem;
-    color: var(--text-primary);
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    line-height: 1;
-    padding: 0;
-}
-.carousel-prev:hover,
-.carousel-next:hover {
-    border-color: rgba(201, 168, 76, 0.6);
-    background: rgba(201, 168, 76, 0.08);
-    box-shadow: 0 8px 28px rgba(201, 168, 76, 0.3);
-}
-.carousel-prev { left: 0; }
-.carousel-next { right: 0; }
-.carousel-prev:disabled,
-.carousel-next:disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-    pointer-events: none;
-}
+        /* ===== CAROUSEL CONTROLS ===== */
+        .carousel-prev,
+        .carousel-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: none;
+            background: #ffffff;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            font-size: 1.6rem;
+            color: #1a1a2e;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            padding: 0;
+        }
+        .carousel-prev:hover,
+        .carousel-next:hover {
+            background: #8a8aaa;
+            color: #1a1a2e;
+            box-shadow: 0 8px 24px rgba(201, 168, 76, 0.35);
+        }
+        .carousel-prev { left: 0; }
+        .carousel-next { right: 0; }
+        .carousel-prev:disabled,
+        .carousel-next:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
 
-.carousel-dots {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 28px;
-}
-.carousel-dots .dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: var(--border);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
-    padding: 0;
-}
-.carousel-dots .dot.active {
-    background: var(--accent);
-    border-color: var(--accent);
-    transform: scale(1.2);
-}
-.carousel-dots .dot:hover {
-    border-color: var(--accent);
-}
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 28px;
+        }
+        .carousel-dots .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            padding: 0;
+        }
+        .carousel-dots .dot.active {
+            background: #8a8aaa;
+            transform: scale(1.2);
+        }
+        .carousel-dots .dot:hover {
+            background: #8a8aaa;
+            opacity: 0.7;
+        }
 
-#viewAllBtn {
-    display: none;
-    background: transparent;
-    margin: 20px auto 0;
-    padding: 14px 36px;
-    color: var(--text-primary);
-    border: none;
-    border-radius: 25px;
-    font-weight: 600;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: all 0.3s;
-    box-shadow: 0 4px 16px rgba(201, 168, 76, 0.15);
-}
-#viewAllBtn:hover {
-    background: rgba(201, 168, 76, 0.08);
-    border-color: rgba(201, 168, 76, 0.7);
-    box-shadow: 0 8px 28px rgba(201, 168, 76, 0.35);
-    transform: translateY(-2px);
-}
+        #viewAllBtn {
+            display: none;
+            background: transparent;
+            margin: 20px auto 0;
+            padding: 14px 36px;
+            color: #1a1a2e;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 16px rgba(201, 168, 76, 0.25), 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
 
-/* ===== TESTIMONIALS ===== */
-.testimonials {
-    padding: 80px 0;
-    background: var(--background);
-}
-.testimonial-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-.testimonial-card {
-    background: var(--card-bg);
-    padding: 32px 28px;
-    border-radius: 12px;
-    box-shadow: 0 4px 16px rgba(201, 168, 76, 0.08);
-    border: 1px solid var(--border);
-    transition: transform 0.3s;
-}
-.testimonial-card:hover {
-    transform: translateY(-4px);
-}
-.testimonial-card .stars {
-    color: #f39c12;
-    font-size: 1.2rem;
-    margin-bottom: 12px;
-}
-.testimonial-card .testimonial-text {
-    color: var(--text-secondary);
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 16px;
-    font-style: italic;
-}
-.testimonial-card .client {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-}
-.testimonial-card .client img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid var(--accent);
-}
-.testimonial-card .client h4 {
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    font-size: 0.95rem;
-}
-.testimonial-card .client span {
-    color: var(--text-muted);
-    font-size: 0.8rem;
-}
+        /* ===== CTA BANNER ===== */
+        .cta-banner {
+            background: linear-gradient(135deg, #1a1a2e, #2a2a4a);
+            color: #fafaf8;
+            padding: 64px 0;
+            text-align: center;
+        }
+        .cta-banner h2 {
+            font-size: 2.4rem;
+            margin-bottom: 12px;
+        }
+        .cta-banner h2 span {
+            color: #c9a84c;
+        }
+        .cta-banner p {
+            color: #b0b0d0;
+            max-width: 500px;
+            margin: 0 auto 28px;
+        }
+         
+        .cta-banner .btn-gold:hover {
+            transform: translateY(-2px);
+        }
 
-/* ===== NEIGHBORHOODS ===== */
-.neighborhoods {
-    padding: 80px 0;
-    background: var(--background-alt);
-}
-.neighborhood-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-}
-.neighborhood-card {
-    position: relative;
-    border-radius: 12px;
-    overflow: hidden;
-    text-decoration: none;
-    color: #fff;
-    display: block;
-    height: 260px;
-}
-.neighborhood-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-.neighborhood-card:hover img {
-    transform: scale(1.05);
-}
-.neighborhood-card::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(26, 46, 42, 0.7), transparent);
-}
-.neighborhood-card h3,
-.neighborhood-card p {
-    position: absolute;
-    left: 24px;
-    z-index: 1;
-}
-.neighborhood-card h3 {
-    bottom: 40px;
-    font-family: 'Playfair Display', serif;
-    font-size: 1.6rem;
-}
-.neighborhood-card p {
-    bottom: 16px;
-    font-size: 0.9rem;
-    opacity: 0.85;
-}
+        /* ===== FOOTER ===== */
+        footer {
+            background: #111122;
+            color: #8a8aaa;
+            padding: 48px 0 32px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 32px;
+             padding-left: 60px;
+        }
+        .footer-grid h4 {
+            color: #fafaf8;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .footer-grid a {
+            color: #8a8aaa;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
+        .footer-grid a:hover {
+            color: #c9a84c;
+        }
+        .footer-bottom {
+            border-top: 1px solid #2a2a4a;
+            padding-top: 24px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #5a5a7a;
+            
+        }
+        .footer-bottom span {
+            color: #c9a84c;
+        }
 
-/* ===== BLOG ===== */
-.blog {
-    padding: 80px 0;
-    background: var(--background);
-}
-.blog-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-.blog-card {
-    background: var(--card-bg);
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid var(--border);
-    transition: transform 0.3s;
-}
-.blog-card:hover {
-    transform: translateY(-4px);
-}
-.blog-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-.blog-content {
-    padding: 24px;
-}
-.blog-content .blog-category {
-    display: inline-block;
-    background: var(--accent);
-    color: #ffffff;
-    padding: 2px 12px;
-    border-radius: 20px;
-    font-size: 0.7rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 10px;
-}
-.blog-content h3 {
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: 1.1rem;
-    margin-bottom: 8px;
-    color: var(--text-primary);
-}
-.blog-content p {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-    margin-bottom: 12px;
-}
-.blog-content a {
-    color: var(--accent);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.9rem;
-    transition: color 0.3s;
-}
-.blog-content a:hover {
-    color: var(--accent-hover);
-}
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .contact-item {
+           
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            padding: 6px 0;
+        }
+        .contact-item:hover {
+            color: #c9a84c;
+        }
+        .contact-icon {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+            filter: brightness(1) saturate(1);
+            transition: filter 0.3s ease;
+        }
 
-/* ===== FAQ ===== */
-.faq {
-    padding: 80px 0;
-    background: var(--background-alt);
-}
-.faq-grid {
-    max-width: 800px;
-    margin: 0 auto;
-}
-.faq-item {
-    border-bottom: 1px solid var(--border);
-    padding: 4px 0;
-}
-.faq-question {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: none;
-    border: none;
-    font-size: 1.05rem;
-    font-weight: 600;
-    cursor: pointer;
-    padding: 16px 0;
-    font-family: 'Inter', sans-serif;
-    color: var(--text-primary);
-    transition: color 0.3s;
-}
-.faq-question:hover {
-    color: var(--accent);
-}
-.faq-answer {
-    display: none;
-    padding: 0 0 16px;
-    color: var(--text-secondary);
-    line-height: 1.6;
-}
-.faq-answer.open {
-    display: block;
-}
-.faq-question i {
-    transition: transform 0.3s;
-    font-size: 1rem;
-    color: var(--accent);
-}
-.faq-question i.rotated {
-    transform: rotate(180deg);
-}
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .hero h1 { font-size: 2.6rem; }
+            .hero-badges {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .property-card {
+                flex: 0 0 calc(50% - 12px);
+                min-width: calc(50% - 12px);
+            }
+            .carousel-wrapper { padding: 0 32px; }
+            .carousel-prev,
+            .carousel-next {
+                width: 38px;
+                height: 38px;
+                font-size: 1.2rem;
+            }
+        }
 
-/* ===== CTA BANNER ===== */
-.cta-banner {
-    background: var(--primary);
-    color: #ffffff;
-    padding: 64px 0;
-    text-align: center;
-}
-.cta-banner h2 {
-    font-size: 2.4rem;
-    margin-bottom: 12px;
-}
-.cta-banner h2 span {
-    color: var(--accent);
-}
-.cta-banner p {
-    color: #b0c0b0;
-    max-width: 500px;
-    margin: 0 auto 28px;
-}
-.cta-banner .btn {
-    background: transparent;
-    color: #ffffff;
-    border:none;
-    padding: 14px 36px;
-    border-radius: 25px;
-    font-weight: 700;
-    box-shadow: 0 4px 16px rgba(201, 168, 76, 0.2);
-}
-.cta-banner .btn:hover {
-    border-color: rgba(201, 168, 76, 0.6);
-    transform: translateY(-2px);
-}
+        @media (max-width: 768px) {
+            header { height: auto; padding: 12px 0; }
+            .logo-image { height: 60px; }
+            
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                padding: 20px 0 10px;
+                gap: 16px;
+                background-color: #2a2a4a;
+                border-radius: 0 0 10px 10px;
+            }
+            .nav-links.open { display: flex; }
+            .hamburger { display: flex; }
+            
+            .hero h1 { font-size: 2rem; }
+            .hero-form { padding: 24px; }
+            .section-title { font-size: 2rem; }
+            
+            .agent-grid { grid-template-columns: 1fr 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+            
+            .carousel-wrapper {
+                padding: 0 16px !important;
+                overflow: hidden;
+            }
+            .carousel-track { gap: 12px !important; }
+            .property-card {
+                flex: 0 0 100% !important;
+                min-width: 100% !important;
+                width: 100% !important;
+                border-radius: 12px !important;
+                border: 1px solid #eee !important;
+                box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06) !important;
+            }
+            .property-card .image {
+                height: 200px;
+                border-radius: 12px 12px 0 0 !important;
+            }
+            .property-card .details {
+                padding: 16px 18px 20px;
+                border: 1px solid #eee !important;
+                border-top: none !important;
+                border-radius: 0 0 12px 12px !important;
+            }
+            .property-card .price { font-size: 1.2rem; }
+            .property-card .specs { gap: 14px; font-size: 0.85rem; }
+            
+            .carousel-prev,
+            .carousel-next {
+                width: 36px;
+                height: 36px;
+                font-size: 1.2rem;
+                background: rgba(255, 255, 255, 0.95);
+                box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+            }
+            .carousel-prev { left: 4px; }
+            .carousel-next { right: 4px; }
+            
+            .carousel-dots { gap: 8px; margin-top: 20px; }
+            .carousel-dots .dot { width: 10px; height: 10px; }
+            
+            #viewAllBtn {
+                display: block !important;
+                margin-top: 15px;
+                margin-bottom: 15px;
+                width: 220px;
+                height: 50px;
+                padding: 14px 36px;
+                border: none;
+                font-weight: 500;
+                cursor: pointer;
+                font-size: 1rem;
+                transition: all 0.3s;
+                background: transparent;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 16px rgba(201, 168, 76, 0.25), 0 2px 8px rgba(0, 0, 0, 0.08);
+                color: #8a8aaa;
+                border-radius: 25px;
+                text-decoration: none;
+            }
+            
+            .full-grid-active .carousel-prev,
+            .full-grid-active .carousel-next,
+            .full-grid-active .carousel-dots {
+                display: none !important;
+            }
+            .full-grid-active .carousel-track {
+                display: grid !important;
+                grid-template-columns: 1fr !important;
+                gap: 24px !important;
+                transform: none !important;
+                transition: none !important;
+                padding: 0;
+            }
+            .full-grid-active .property-card {
+                flex: none !important;
+                min-width: auto !important;
+                width: 100% !important;
+                border-radius: 12px !important;
+                border: 1px solid #eee !important;
+                box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06) !important;
+            }
+            .full-grid-active .property-card .image {
+                border-radius: 12px 12px 0 0 !important;
+            }
+            .full-grid-active .property-card .details {
+                border: 1px solid #eee !important;
+                border-top: none !important;
+                border-radius: 0 0 12px 12px !important;
+            }
+            .full-grid-active .carousel-wrapper {
+                overflow: visible;
+                padding: 0 16px !important;
+            }
+        }
 
-/* ===== FOOTER ===== */
-footer {
-    background: var(--primary-dark);
-    color: var(--text-muted);
-    padding: 48px 0 32px;
-}
-.footer-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 40px;
-    margin-bottom: 32px;
-    padding-left: 0;
-}
-.footer-grid h4 {
-    color: #ffffff;
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    margin-bottom: 12px;
-}
-.footer-grid a {
-    color: var(--text-muted);
-    text-decoration: none;
-    display: block;
-    margin-bottom: 6px;
-    font-size: 0.9rem;
-}
-.footer-grid a:hover {
-    color: var(--accent);
-}
-.footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.08);
-    padding-top: 24px;
-    text-align: center;
-    font-size: 0.8rem;
-    color: var(--text-muted);
-}
-.footer-bottom span {
-    color: var(--accent);
-}
-.contact-links {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-.contact-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    color: var(--text-muted);
-    text-decoration: none;
-    font-size: 0.95rem;
-    transition: color 0.3s ease;
-    padding: 6px 0;
-}
-.contact-item:hover {
-    color: var(--accent);
-}
-.contact-icon {
-    width: 24px;
-    height: 24px;
-    object-fit: contain;
-    filter: brightness(1) saturate(1);
-    transition: filter 0.3s ease;
-}
+        @media (max-width: 480px) {
+            header { height: 80px; }
+            .logo-image { height: 80px; }
+            .agent-grid { grid-template-columns: 1fr; }
+            .hero-badges {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            .container { padding: 0 16px; }
+            
+            .carousel-wrapper { padding: 0 12px !important; }
+            .property-card .image { height: 180px; }
+            .property-card .details { padding: 14px 14px 18px; }
+            .property-card .price { font-size: 1.1rem; }
+            .property-card .address { font-size: 0.85rem; }
+            .property-card .specs { gap: 10px; font-size: 0.8rem; }
+            
+            .carousel-prev,
+            .carousel-next {
+                width: 30px;
+                height: 30px;
+                font-size: 1rem;
+            }
+            .carousel-prev { left: 2px; }
+            .carousel-next { right: 2px; }
+            
+            #viewAllBtn {
+                padding: 12px 28px;
+                font-size: 0.9rem;
+            }
+        }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width: 1024px) {
-    .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-    .hero h1 { font-size: 2.6rem; }
-    .hero-badges {
-        flex-wrap: wrap;
-        gap: 20px;
-    }
-    .footer-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-    .property-card {
-        flex: 0 0 calc(50% - 12px);
-        min-width: calc(50% - 12px);
-    }
-    .carousel-wrapper { padding: 0 32px; }
-    .carousel-prev,
-    .carousel-next {
-        width: 38px;
-        height: 38px;
-        font-size: 1.2rem;
-    }
-    .stats-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-@media (max-width: 768px) {
-    header { height: auto; padding: 12px 0; }
-    .logo-image { height: 50px; }
-    
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        padding: 20px 0 10px;
-        gap: 16px;
-        background-color: var(--primary-light);
-        border-radius: 0 0 10px 10px;
-    }
-    .nav-links.open { display: flex; }
-    .hamburger { display: flex; }
-    
-    .hero { min-height: auto; }
-    .hero h1 { font-size: 2rem; }
-    .hero-form { padding: 24px; }
-    .section-title { font-size: 2rem; }
-    
-    .agent-grid { grid-template-columns: 1fr 1fr; }
-    .footer-grid { grid-template-columns: 1fr; gap: 24px; }
-    .stats-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
-    .stat-number { font-size: 2.2rem; }
-    
-    .carousel-wrapper {
-        padding: 0 16px !important;
-        overflow: hidden;
-    }
-    .carousel-track { gap: 12px !important; }
-    .property-card {
-        flex: 0 0 100% !important;
-        min-width: 100% !important;
-        width: 100% !important;
-        border-radius: 12px !important;
-        border: 1px solid var(--border) !important;
-        box-shadow: 0 4px 16px rgba(201, 168, 76, 0.08) !important;
-    }
-    .property-card .image {
-        height: 200px;
-        border-radius: 12px 12px 0 0 !important;
-    }
-    .property-card .details {
-        padding: 16px 18px 20px;
-        border: 1px solid var(--border) !important;
-        border-top: none !important;
-        border-radius: 0 0 12px 12px !important;
-    }
-    .property-card .price { font-size: 1.2rem; }
-    .property-card .specs { gap: 14px; font-size: 0.85rem; }
-    
-    .carousel-prev,
-    .carousel-next {
-        width: 36px;
-        height: 36px;
-        font-size: 1.2rem;
-        background: rgba(255, 255, 255, 0.95);
-        box-shadow: 0 2px 12px rgba(201, 168, 76, 0.15);
-    }
-    .carousel-prev { left: 4px; }
-    .carousel-next { right: 4px; }
-    
-    .carousel-dots { gap: 8px; margin-top: 20px; }
-    .carousel-dots .dot { width: 10px; height: 10px; }
-    
-    #viewAllBtn {
-        display: block !important;
-        margin-top: 15px;
-        margin-bottom: 15px;
-        padding: 14px 36px;
-        border: 2px solid rgba(201, 168, 76, 0.3);
-        border-radius: 25px;
-        font-weight: 600;
-        cursor: pointer;
-        font-size: 1rem;
-        transition: all 0.3s;
-        background: transparent;
-        color: var(--text-primary);
-        box-shadow: 0 4px 16px rgba(201, 168, 76, 0.15);
-    }
-    #viewAllBtn:hover {
-        background: rgba(201, 168, 76, 0.08);
-        border-color: rgba(201, 168, 76, 0.7);
-        box-shadow: 0 8px 28px rgba(201, 168, 76, 0.35);
-        transform: translateY(-2px);
-    }
-    
-    .full-grid-active .carousel-prev,
-    .full-grid-active .carousel-next,
-    .full-grid-active .carousel-dots {
-        display: none !important;
-    }
-    .full-grid-active .carousel-track {
-        display: grid !important;
-        grid-template-columns: 1fr !important;
-        gap: 24px !important;
-        transform: none !important;
-        transition: none !important;
-        padding: 0;
-    }
-    .full-grid-active .property-card {
-        flex: none !important;
-        min-width: auto !important;
-        width: 100% !important;
-        border-radius: 12px !important;
-        border: 1px solid var(--border) !important;
-        box-shadow: 0 4px 16px rgba(201, 168, 76, 0.08) !important;
-    }
-    .full-grid-active .property-card .image {
-        border-radius: 12px 12px 0 0 !important;
-    }
-    .full-grid-active .property-card .details {
-        border: 1px solid var(--border) !important;
-        border-top: none !important;
-        border-radius: 0 0 12px 12px !important;
-    }
-    .full-grid-active .carousel-wrapper {
-        overflow: visible;
-        padding: 0 16px !important;
-    }
-    
-    .testimonial-grid,
-    .neighborhood-grid,
-    .blog-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 480px) {
-    .logo-image { height: 40px; }
-    .agent-grid { grid-template-columns: 1fr; }
-    .hero-badges {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-    }
-    .container { padding: 0 16px; }
-    .stats-grid { grid-template-columns: 1fr; }
-    .stat-number { font-size: 2rem; }
-    
-    .carousel-wrapper { padding: 0 12px !important; }
-    .property-card .image { height: 180px; }
-    .property-card .details { padding: 14px 14px 18px; }
-    .property-card .price { font-size: 1.1rem; }
-    .property-card .address { font-size: 0.85rem; }
-    .property-card .specs { gap: 10px; font-size: 0.8rem; }
-    
-    .carousel-prev,
-    .carousel-next {
-        width: 30px;
-        height: 30px;
-        font-size: 1rem;
-    }
-    .carousel-prev { left: 2px; }
-    .carousel-next { right: 2px; }
-    
-    #viewAllBtn {
-        padding: 12px 28px;
-        font-size: 0.9rem;
-    }
-}
-
-/* ===== ANIMATION ===== */
-.fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeUp 0.6s ease forwards;
-}
-.fade-in-delay { animation-delay: 0.2s; }
-.fade-in-delay-2 { animation-delay: 0.4s; }
-@keyframes fadeUp {
-    to { opacity: 1; transform: translateY(0); }
-}
+        /* ===== ANIMATION ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.6s ease forwards;
+        }
+        .fade-in-delay { animation-delay: 0.2s; }
+        .fade-in-delay-2 { animation-delay: 0.4s; }
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body>
@@ -1096,14 +758,13 @@ footer {
     <!-- ===== HEADER ===== -->
     <header>
         <div class="container nav">
-            <img src="the-clifford-group-logo-removebg-preview.png" alt="The Clifford Group" class="logo-image" loading="lazy" />
+            <img src="the-clifford-group-logo-removebg-preview.png" alt="The Clifford Group" class="logo-image" />
             <button class="hamburger" id="hamburger" aria-label="Toggle menu">
                 <span></span><span></span><span></span>
             </button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#properties">Properties</a></li>
                 <li><a href="#agents">Our Team</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#valuation" class="btn btn-gold" style="padding:10px 24px;font-size:0.85rem;">Free Valuation</a></li>
             </ul>
         </div>
@@ -1138,28 +799,6 @@ footer {
         </div>
     </section>
 
-    <!-- ===== STATISTICS ===== -->
-    <section class="stats" id="stats">
-        <div class="container stats-grid">
-            <div class="stat-item">
-                <span class="stat-number" id="stat1">0</span>
-                <span class="stat-label">Homes Sold</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number" id="stat2">0</span>
-                <span class="stat-label">Client Satisfaction (%)</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number" id="stat3">0</span>
-                <span class="stat-label">Years Experience</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number" id="stat4">0</span>
-                <span class="stat-label">Dedicated Agents</span>
-            </div>
-        </div>
-    </section>
-
     <!-- ===== PROPERTIES ===== -->
     <section class="properties" id="properties">
         <div class="container">
@@ -1170,10 +809,7 @@ footer {
                 <div class="carousel-track" id="propertyTrack">
                     <!-- Property 1 -->
                     <div class="property-card">
-                        <div class="image">
-                            <span class="badge badge-featured">Featured</span>
-                            <img src="pic2.webp" alt="Luxury property" loading="lazy" />
-                        </div>
+                        <div class="image"><img src="pic2.webp" alt="luxury"></div>
                         <div class="details">
                             <div class="price">$2,295,000</div>
                             <div class="address">10 St Simon Place, Sydney NSW 2154</div>
@@ -1189,10 +825,7 @@ footer {
 
                     <!-- Property 2 -->
                     <div class="property-card">
-                        <div class="image">
-                            <span class="badge badge-new">New</span>
-                            <img src="PIC3.webp" alt="Family home" loading="lazy" />
-                        </div>
+                        <div class="image"><img src="PIC3.webp" alt="family home"></div>
                         <div class="details">
                             <div class="price">$890,000</div>
                             <div class="address">Lot 1/55 Terry RD, Eastwood, NSW 2122</div>
@@ -1208,10 +841,7 @@ footer {
 
                     <!-- Property 3 -->
                     <div class="property-card">
-                        <div class="image">
-                            <span class="badge badge-under-offer">Under Offer</span>
-                            <img src="PIC1.webp" alt="Harbour View" loading="lazy" />
-                        </div>
+                        <div class="image"><img src="PIC1.webp" alt="Harbour View"></div>
                         <div class="details">
                             <div class="price">$2,850,000</div>
                             <div class="address">68 Algernon Street, Oatley, NSW 2223</div>
@@ -1227,10 +857,7 @@ footer {
 
                     <!-- Property 4 -->
                     <div class="property-card">
-                        <div class="image">
-                            <span class="badge badge-featured">Featured</span>
-                            <img src="PIC4.webp" alt="Property" loading="lazy" />
-                        </div>
+                        <div class="image"><img src="PIC4.webp" alt="Property"></div>
                         <div class="details">
                             <div class="price">$1,650,000</div>
                             <div class="address">4 Stanhope RD, Killara, NSW 2071</div>
@@ -1246,10 +873,7 @@ footer {
 
                     <!-- Property 5 -->
                     <div class="property-card">
-                        <div class="image">
-                            <span class="badge badge-new">New</span>
-                            <img src="PIC5.webp" alt="Property" loading="lazy" />
-                        </div>
+                        <div class="image"><img src="PIC5.webp" alt="Property"></div>
                         <div class="details">
                             <div class="price">$1,355,000</div>
                             <div class="address">11 Bangalla St, Warrawee, NSW 2074</div>
@@ -1265,10 +889,7 @@ footer {
 
                     <!-- Property 6 -->
                     <div class="property-card">
-                        <div class="image">
-                            <span class="badge badge-sold">Sold</span>
-                            <img src="pic6.webp" alt="Property" loading="lazy" />
-                        </div>
+                        <div class="image"><img src="pic6.webp" alt="Property"></div>
                         <div class="details">
                             <div class="price">$2,170,000</div>
                             <div class="address">104 The Terrance, Windsor, NSW 2756</div>
@@ -1284,10 +905,7 @@ footer {
 
                     <!-- Property 7 -->
                     <div class="property-card">
-                        <div class="image">
-                            <span class="badge badge-under-offer">Under Offer</span>
-                            <img src="pic7.webp" alt="Property" loading="lazy" />
-                        </div>
+                        <div class="image"><img src="pic7.webp" alt="Property"></div>
                         <div class="details">
                             <div class="price">$2,319,000</div>
                             <div class="address">47 Tunks St Northbridge NSW 2063</div>
@@ -1310,177 +928,18 @@ footer {
                     <span class="dot" data-index="1"></span>
                     <span class="dot" data-index="2"></span>
                     <span class="dot" data-index="3"></span>
-                    <span class="dot" data-index="4"></span>
-                    <span class="dot" data-index="5"></span>
-                    <span class="dot" data-index="6"></span>
-                </div>
-
-                <button id="viewAllBtn">View All Properties</button>
+                 <span class="dot" data-index="4"></span>
+                  <span class="dot" data-index="5" ></span>
+                   <span class="dot" data-index="6" ></span>
             </div>
+            <!-- View All Toggle Button -->
+<button id="viewAllBtn">
+    View All Properties
+</button>
+<div id="fullGrid" style="display:none;margin-top:24px;"></div>
         </div>
-    </section>
-
-    <!-- ===== TESTIMONIALS ===== -->
-    <section class="testimonials" id="testimonials">
-        <div class="container">
-            <h2 class="section-title">What Our Clients Say</h2>
-            <p class="section-subtitle">Real stories from real people who found their dream home with us.</p>
-            
-            <div class="testimonial-grid">
-                <div class="testimonial-card fade-in">
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonial-text">"David and his team made buying our first home stress-free. They guided us through every step with patience and expertise. We couldn't be happier."</p>
-                    <div class="client">
-                        <img src="https://ui-avatars.com/api/?name=Sarah+Mark&background=c9a84c&color=1a1a2e&size=50" alt="Sarah & Mark" loading="lazy" />
-                        <div>
-                            <h4>Sarah & Mark</h4>
-                            <span>First Home Buyers, Sydney</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card fade-in fade-in-delay">
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonial-text">"Sharon's negotiation skills are unmatched. She got us a price we never thought possible and made the whole process feel effortless."</p>
-                    <div class="client">
-                        <img src="https://ui-avatars.com/api/?name=James+Wong&background=c9a84c&color=1a1a2e&size=50" alt="James Wong" loading="lazy" />
-                        <div>
-                            <h4>James Wong</h4>
-                            <span>Vendor, Eastwood</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card fade-in fade-in-delay-2">
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonial-text">"Scott's data-driven approach helped us find the perfect investment property. His market knowledge is second to none. Highly recommend."</p>
-                    <div class="client">
-                        <img src="https://ui-avatars.com/api/?name=Emma+Taylor&background=c9a84c&color=1a1a2e&size=50" alt="Emma Taylor" loading="lazy" />
-                        <div>
-                            <h4>Emma Taylor</h4>
-                            <span>Investor, Melbourne</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== NEIGHBORHOODS ===== -->
-    <section class="neighborhoods" id="neighborhoods">
-        <div class="container">
-            <h2 class="section-title">Explore Our Neighborhoods</h2>
-            <p class="section-subtitle">Discover the best suburbs across Australia.</p>
-            
-            <div class="neighborhood-grid">
-                <a href="#" class="neighborhood-card">
-                    <img src="https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=600&h=400&fit=crop" alt="Sydney" loading="lazy" />
-                    <h3>Sydney</h3>
-                    <p>Luxury waterfront & city living</p>
-                </a>
-                <a href="#" class="neighborhood-card">
-                    <img src="https://images.unsplash.com/photo-1545044846-351ba102b6d5?w=600&h=400&fit=crop" alt="Melbourne" loading="lazy" />
-                    <h3>Melbourne</h3>
-                    <p>Family homes & cultural hub</p>
-                </a>
-                <a href="#" class="neighborhood-card">
-                    <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&h=400&fit=crop" alt="Gold Coast" loading="lazy" />
-                    <h3>Gold Coast</h3>
-                    <p>Beach lifestyle & investment</p>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== BLOG ===== -->
-    <section class="blog" id="blog">
-        <div class="container">
-            <h2 class="section-title">Latest Insights</h2>
-            <p class="section-subtitle">Expert advice and market updates from The Clifford Group.</p>
-            
-            <div class="blog-grid">
-                <article class="blog-card fade-in">
-                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop" alt="Market Update" loading="lazy" />
-                    <div class="blog-content">
-                        <span class="blog-category">Market Update</span>
-                        <h3>2026 Australian Property Market Forecast</h3>
-                        <p>What buyers and sellers need to know this year. Interest rates, demand, and emerging trends.</p>
-                        <a href="#">Read More →</a>
-                    </div>
-                </article>
-
-                <article class="blog-card fade-in fade-in-delay">
-                    <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&h=400&fit=crop" alt="Buying Guide" loading="lazy" />
-                    <div class="blog-content">
-                        <span class="blog-category">Buying Guide</span>
-                        <h3>First Home Buyer's Guide 2026</h3>
-                        <p>Everything you need to know about government grants, deposit options, and choosing the right property.</p>
-                        <a href="#">Read More →</a>
-                    </div>
-                </article>
-
-                <article class="blog-card fade-in fade-in-delay-2">
-                    <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=600&h=400&fit=crop" alt="Investment Tips" loading="lazy" />
-                    <div class="blog-content">
-                        <span class="blog-category">Investment</span>
-                        <h3>Top 5 Investment Hotspots for 2026</h3>
-                        <p>Where to invest in Australian property for the best returns. Data-driven insights from our experts.</p>
-                        <a href="#">Read More →</a>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== FAQ ===== -->
-    <section class="faq" id="faq">
-        <div class="container">
-            <h2 class="section-title">Frequently Asked Questions</h2>
-            <p class="section-subtitle">Everything you need to know about buying, selling, and valuations.</p>
-            
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFAQ(this)">
-                        How much is my property worth?
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Our free valuation service provides an estimated market value based on recent sales, property condition, and location. David will contact you within 24 hours with a comprehensive report.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFAQ(this)">
-                        How long does it take to sell a property?
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>The average time to sell a property in Australia is 30-60 days, depending on market conditions, location, and pricing. Our team works to minimize this time while maximizing your return.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFAQ(this)">
-                        What are the costs involved in buying a home?
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Buying costs include stamp duty, legal fees, building inspections, loan application fees, and insurance. We provide a detailed breakdown during your consultation so there are no surprises.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFAQ(this)">
-                        Do you offer property management services?
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Yes, we offer comprehensive property management services including tenant finding, rent collection, maintenance coordination, and regular inspections. Contact us for a free management quote.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    </div>
+</section>
 
     <!-- ===== AGENTS ===== -->
     <section class="agents" id="agents">
@@ -1489,28 +948,31 @@ footer {
             <p class="section-subtitle">Experts who know your market inside out.</p>
 
             <div class="agent-grid">
+                <!-- David -->
                 <div class="agent-card fade-in">
-                    <img src="pic8.png" alt="David Clifford" loading="lazy" />
+                    <img src="pic8.png" alt="David Clifford" />
                     <h3>David Clifford</h3>
                     <div class="title">Team Leader / Director</div>
                     <p>15+ years in Australian real estate. Specialises in luxury waterfront and prestige properties.</p>
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=Cliffordgroup05@gmail.com" class="contact-link"><i class="fas fa-envelope"></i> Cliffordgroup05@gmail.com</a>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=:Cliffordgroup05@gmail.com" class="contact-link"><i class="fas fa-envelope"></i> Clifordgroup05@gmail.com</a>
                 </div>
 
+                <!-- Jane -->
                 <div class="agent-card fade-in fade-in-delay">
-                    <img src="pic.jpeg" alt="Sharon Romine" loading="lazy" />
+                    <img src="pic.jpeg" alt="Sharon Romine" />
                     <h3>Sharon Romine</h3>
                     <div class="title">Senior Agent</div>
                     <p>First-home buyers &amp; family homes. Known for her patience, honesty, and negotiation skills.</p>
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=Sharonromine53@gmail.com" class="contact-link"><i class="fas fa-envelope"></i> Sharonromine53@gmail.com</a>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=:Sharonromine53@gmail.com" class="contact-link"><i class="fas fa-envelope"></i> Sharonromine53@gmail.com</a>
                 </div>
 
+                <!-- Michael -->
                 <div class="agent-card fade-in fade-in-delay-2">
-                    <img src="pic9.png" alt="Scott Stephen" loading="lazy" />
+                    <img src="pic9.png" alt="Scott Stephen" />
                     <h3>Scott Stephen</h3>
                     <div class="title">Investment Specialist</div>
                     <p>Commercial &amp; multi-family residential. Data-driven analysis for high-yield portfolios.</p>
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=Scott@cliffordgroup.com.au" class="contact-link"><i class="fas fa-envelope"></i> Scott@cliffordgroup.com.au</a>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=:michael@cliffordgroup.com.au" class="contact-link"><i class="fas fa-envelope"></i> Scott@cliffordgroup.com.au</a>
                 </div>
             </div>
         </div>
@@ -1527,7 +989,7 @@ footer {
 
     <!-- ===== FOOTER ===== -->
     <footer>
-        <div class="container">
+        <div class="footer-contact">
             <div class="footer-grid">
                 <div>
                     <h4>The Clifford Group</h4>
@@ -1537,338 +999,277 @@ footer {
                     <h4>Quick Links</h4>
                     <a href="#properties">Properties</a>
                     <a href="#agents">Our Team</a>
-                    <a href="#testimonials">Testimonials</a>
-                    <a href="#faq">FAQ</a>
                     <a href="#valuation">Free Valuation</a>
                 </div>
                 
-                <div>
-                    <h4>Contact</h4>
-                    <div class="contact-links">
-                        <a href="tel:+1 (365) 955-9242" class="contact-item">
-                            <img src="viber (2).png" alt="Phone icon" class="contact-icon" loading="lazy" />
-                            <span>+1 (365) 955-9242</span>
-                        </a>
-                        <a href="https://www.facebook.com/share/1AsrsYLQGN/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="contact-item">
-                            <img src="facebook.png" alt="Facebook icon" class="contact-icon" loading="lazy" />
-                            <span>Facebook</span>
-                        </a>
-                        <a href="https://wa.me/13659559242" target="_blank" rel="noopener noreferrer" class="contact-item">
-                            <img src="social.png" alt="WhatsApp icon" class="contact-icon" loading="lazy" />
-                            <span>WhatsApp</span>
-                        </a>
-                    </div>
+        
+        
+            
+            <!-- Contact (NEW & IMPROVED) -->
+            <div>
+                <h4>Contact</h4>
+                <div class="contact-links">
+                    <a href="tel:+1 (365) 955-9242" class="contact-item">
+                        <img src="viber (2).png" alt="Phone icon" class="contact-icon" />
+                        <span>+1 (365) 955-9242</span>
+                    </a>
+                    <a href="https://www.facebook.com/share/1AsrsYLQGN/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="contact-item">
+                        <img src="facebook.png" alt="Facebook icon" class="contact-icon" />
+                        <span>Facebook</span>
+                    </a>
+                    <a href="https://wa.link/vxio3g">
+                        <img src="social.png" alt="WhatsApp icon" class="contact-icon"/>
+                        <span>WhatsApp</span></a>
                 </div>
             </div>
-
-            <div class="footer-bottom">
-                &copy; 2016 - <span id="currentYear">2026</span> <span>The Clifford Group</span>. All rights reserved. Licensed Real Estate Agents – Australia.
+        </div>
             </div>
+            <div class="footer-bottom">
+    &copy; 2016 - 2026 <span>The Clifford Group</span>. All rights reserved. Licensed Real Estate Agents – Australia.
+</div>
         </div>
     </footer>
-
-    <!-- ===== JAVASCRIPT ===== -->
     <script>
-        // ===== AUTO-UPDATE COPYRIGHT YEAR =====
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    // ===== MOBILE HAMBURGER MENU =====
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
 
-        // ===== MOBILE HAMBURGER MENU =====
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.getElementById('navLinks');
+hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+});
 
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('open');
-        });
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+    });
+});
 
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('open');
-            });
-        });
+// ===== PROPERTY CAROUSEL =====
+const track = document.getElementById('propertyTrack');
+const prevBtn = document.getElementById('carouselPrev');
+const nextBtn = document.getElementById('carouselNext');
+const dots = document.querySelectorAll('.carousel-dots .dot');
+const viewAllBtn = document.getElementById('viewAllBtn');
+const carouselWrapper = document.querySelector('.carousel-wrapper');
 
-        // ===== STATISTICS COUNTER ANIMATION =====
-        function animateCounters() {
-            const stats = [
-                { id: 'stat1', target: 200, suffix: '+' },
-                { id: 'stat2', target: 98, suffix: '%' },
-                { id: 'stat3', target: 15, suffix: '+' },
-                { id: 'stat4', target: 3, suffix: '' }
-            ];
+let currentIndex = 0;
+let slidesPerView = 3;
+const totalSlides = document.querySelectorAll('.property-card').length;
+let isFullGrid = false;
 
-            stats.forEach(stat => {
-                const el = document.getElementById(stat.id);
-                if (!el) return;
-                
-                let current = 0;
-                const increment = Math.ceil(stat.target / 40);
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= stat.target) {
-                        current = stat.target;
-                        clearInterval(timer);
-                    }
-                    el.textContent = current + stat.suffix;
-                }, 30);
-            });
+function getSlidesPerView() {
+    if (isFullGrid) return totalSlides;
+    if (window.innerWidth < 768) return 1;
+    if (window.innerWidth < 1024) return 2;
+    return 3;
+}
+
+function getGap() {
+    if (isFullGrid) return 24;
+    if (window.innerWidth < 768) return 12;
+    return 24;
+}
+
+function updateCarousel() {
+    slidesPerView = getSlidesPerView();
+    const gap = getGap();
+    
+    const card = track.querySelector('.property-card');
+    if (!card) return;
+    
+    let cardWidth = card.offsetWidth;
+    
+    if (window.innerWidth < 768 && !isFullGrid) {
+        const wrapperPadding = 16;
+        const availableWidth = track.parentElement.offsetWidth - (wrapperPadding * 2);
+        cardWidth = availableWidth;
+    }
+    
+    const maxIndex = Math.max(0, totalSlides - slidesPerView);
+    
+    if (currentIndex > maxIndex) currentIndex = maxIndex;
+    if (currentIndex < 0) currentIndex = 0;
+    
+    let offset = 0;
+    if (!isFullGrid) {
+        offset = -currentIndex * (cardWidth + gap);
+    }
+    track.style.transform = 'translateX(' + offset + 'px)';
+    
+    dots.forEach(function(dot) {
+        const index = parseInt(dot.getAttribute('data-index'));
+        if (index === currentIndex) {
+            dot.classList.add('active');
+            dot.style.background = '#c9a84c';
+        } else {
+            dot.classList.remove('active');
+            dot.style.background = '#ddd';
         }
+    });
+    
+    if (isFullGrid || currentIndex === 0) {
+        prevBtn.style.display = 'none';
+    } else {
+        prevBtn.style.display = 'flex';
+    }
+    
+    if (isFullGrid || currentIndex >= maxIndex) {
+        nextBtn.style.display = 'none';
+    } else {
+        nextBtn.style.display = 'flex';
+    }
+}
 
-        // ===== PROPERTY CAROUSEL =====
-        const track = document.getElementById('propertyTrack');
-        const prevBtn = document.getElementById('carouselPrev');
-        const nextBtn = document.getElementById('carouselNext');
-        const dots = document.querySelectorAll('.carousel-dots .dot');
-        const viewAllBtn = document.getElementById('viewAllBtn');
-        const carouselWrapper = document.querySelector('.carousel-wrapper');
+nextBtn.addEventListener('click', function() {
+    if (isFullGrid) return;
+    const maxIndex = Math.max(0, totalSlides - getSlidesPerView());
+    if (currentIndex < maxIndex) {
+        currentIndex++;
+        updateCarousel();
+    }
+});
 
-        let currentIndex = 0;
-        let slidesPerView = 3;
-        const totalSlides = document.querySelectorAll('.property-card').length;
-        let isFullGrid = false;
+prevBtn.addEventListener('click', function() {
+    if (isFullGrid) return;
+    if (currentIndex > 0) {
+        currentIndex--;
+        updateCarousel();
+    }
+});
 
-        function getSlidesPerView() {
-            if (isFullGrid) return totalSlides;
-            if (window.innerWidth < 768) return 1;
-            if (window.innerWidth < 1024) return 2;
-            return 3;
+dots.forEach(function(dot) {
+    dot.addEventListener('click', function() {
+        if (isFullGrid) return;
+        currentIndex = parseInt(this.getAttribute('data-index'));
+        updateCarousel();
+    });
+});
+
+if (viewAllBtn) {
+    viewAllBtn.addEventListener('click', function() {
+        isFullGrid = !isFullGrid;
+        
+        if (isFullGrid) {
+            carouselWrapper.classList.add('full-grid-active');
+            this.textContent = 'Show Carousel';
+            this.style.background = '#1a1a2e';
+            this.style.color = '#fafaf8';
+            currentIndex = 0;
+            updateCarousel();
+        } else {
+            carouselWrapper.classList.remove('full-grid-active');
+            this.textContent = 'View All Properties';
+            this.style.background = '#c9a84c';
+            this.style.color = '#1a1a2e';
+            currentIndex = 0;
+            updateCarousel();
         }
+    });
+}
 
-        function getGap() {
-            if (isFullGrid) return 24;
-            if (window.innerWidth < 768) return 12;
-            return 24;
+let resizeTimer;
+window.addEventListener('resize', function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function() {
+        updateCarousel();
+    }, 250);
+});
+
+window.addEventListener('load', function() {
+    setTimeout(updateCarousel, 300);
+});
+
+setTimeout(updateCarousel, 100);
+
+// ===== VALUATION FORM - FORMSPREE INTEGRATION =====
+function submitForm() {
+    const name = document.getElementById('fullName').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const address = document.getElementById('propertyAddress').value.trim();
+    const feedback = document.getElementById('formFeedback');
+    
+    // Validation
+    if (!name || !email || !phone || !address) {
+        feedback.style.display = 'block';
+        feedback.style.color = '#e74c3c';
+        feedback.textContent = '⚠️ All fields are required.';
+        return;
+    }
+    
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+        feedback.style.display = 'block';
+        feedback.style.color = '#e74c3c';
+        feedback.textContent = '⚠️ Please enter a valid email address.';
+        return;
+    }
+    
+    const phonePattern = /^[\d\s\+\(\)\-]{8,20}$/;
+    if (!phonePattern.test(phone)) {
+        feedback.style.display = 'block';
+        feedback.style.color = '#e74c3c';
+        feedback.textContent = '⚠️ Please enter a valid phone number.';
+        return;
+    }
+    
+    // Submit to Formspree
+    const submitBtn = document.querySelector('#valuationForm button');
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
+    submitBtn.style.opacity = '0.7';
+    
+    const form = document.getElementById('valuationForm');
+    const formData = new FormData(form);
+    
+    fetch('https://formspree.io/f/xbdvqnwe', {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'Accept': 'application/json'
         }
-
-        function updateCarousel() {
-            slidesPerView = getSlidesPerView();
-            const gap = getGap();
+    })
+    .then(response => {
+        if (response.ok) {
+            feedback.style.display = 'block';
+            feedback.style.color = '#27ae60';
+            feedback.textContent = '✅ Thank you! David will contact you within 24 hours with your valuation.';
+            form.reset();
             
-            const card = track.querySelector('.property-card');
-            if (!card) return;
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+            submitBtn.style.opacity = '1';
             
-            let cardWidth = card.offsetWidth;
-            
-            if (window.innerWidth < 768 && !isFullGrid) {
-                const wrapperPadding = 16;
-                const availableWidth = track.parentElement.offsetWidth - (wrapperPadding * 2);
-                cardWidth = availableWidth;
-            }
-            
-            const maxIndex = Math.max(0, totalSlides - slidesPerView);
-            
-            if (currentIndex > maxIndex) currentIndex = maxIndex;
-            if (currentIndex < 0) currentIndex = 0;
-            
-            let offset = 0;
-            if (!isFullGrid) {
-                offset = -currentIndex * (cardWidth + gap);
-            }
-            track.style.transform = 'translateX(' + offset + 'px)';
-            
-            dots.forEach(function(dot) {
-                const index = parseInt(dot.getAttribute('data-index'));
-                if (index === currentIndex) {
-                    dot.classList.add('active');
-                    dot.style.background = '#c9a84c';
-                } else {
-                    dot.classList.remove('active');
-                    dot.style.background = '#ddd';
-                }
-            });
-            
-            if (isFullGrid || currentIndex === 0) {
-                prevBtn.style.display = 'none';
-            } else {
-                prevBtn.style.display = 'flex';
-            }
-            
-            if (isFullGrid || currentIndex >= maxIndex) {
-                nextBtn.style.display = 'none';
-            } else {
-                nextBtn.style.display = 'flex';
-            }
-        }
-
-        nextBtn.addEventListener('click', function() {
-            if (isFullGrid) return;
-            const maxIndex = Math.max(0, totalSlides - getSlidesPerView());
-            if (currentIndex < maxIndex) {
-                currentIndex++;
-                updateCarousel();
-            }
-        });
-
-        prevBtn.addEventListener('click', function() {
-            if (isFullGrid) return;
-            if (currentIndex > 0) {
-                currentIndex--;
-                updateCarousel();
-            }
-        });
-
-        dots.forEach(function(dot) {
-            dot.addEventListener('click', function() {
-                if (isFullGrid) return;
-                currentIndex = parseInt(this.getAttribute('data-index'));
-                updateCarousel();
-            });
-        });
-
-        if (viewAllBtn) {
-            viewAllBtn.addEventListener('click', function() {
-                isFullGrid = !isFullGrid;
-                
-                if (isFullGrid) {
-                    carouselWrapper.classList.add('full-grid-active');
-                    this.textContent = 'Show Carousel';
-                    this.style.background = '#1a1a2e';
-                    this.style.color = '#fafaf8';
-                    currentIndex = 0;
-                    updateCarousel();
-                    
-                    // Scroll to properties on mobile
-                    if (window.innerWidth < 768) {
-                        document.getElementById('properties').scrollIntoView({ 
-                            behavior: 'smooth', 
-                            block: 'start' 
-                        });
-                    }
-                } else {
-                    carouselWrapper.classList.remove('full-grid-active');
-                    this.textContent = 'View All Properties';
-                    this.style.background = 'transparent';
-                    this.style.color = '#1a1a2e';
-                    currentIndex = 0;
-                    updateCarousel();
-                }
-            });
-        }
-
-        let resizeTimer;
-        window.addEventListener('resize', function() {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(function() {
-                updateCarousel();
-            }, 250);
-        });
-
-        window.addEventListener('load', function() {
-            setTimeout(updateCarousel, 300);
-            setTimeout(animateCounters, 500);
-        });
-
-        setTimeout(updateCarousel, 100);
-
-        // ===== FAQ TOGGLE =====
-        function toggleFAQ(button) {
-            const answer = button.nextElementSibling;
-            const icon = button.querySelector('i');
-            
-            if (answer.classList.contains('open')) {
-                answer.classList.remove('open');
-                icon.classList.remove('rotated');
-            } else {
-                // Close all other FAQs
-                document.querySelectorAll('.faq-answer').forEach(a => {
-                    a.classList.remove('open');
-                });
-                document.querySelectorAll('.faq-question i').forEach(i => {
-                    i.classList.remove('rotated');
-                });
-                
-                answer.classList.add('open');
-                icon.classList.add('rotated');
-            }
-        }
-
-        // ===== VALUATION FORM - FORMSPREE INTEGRATION =====
-        function submitForm() {
-            const name = document.getElementById('fullName').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const phone = document.getElementById('phone').value.trim();
-            const address = document.getElementById('propertyAddress').value.trim();
-            const feedback = document.getElementById('formFeedback');
-            
-            // Validation
-            if (!name || !email || !phone || !address) {
-                feedback.style.display = 'block';
-                feedback.style.color = '#e74c3c';
-                feedback.textContent = '⚠️ All fields are required.';
-                return;
-            }
-            
-            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailPattern.test(email)) {
-                feedback.style.display = 'block';
-                feedback.style.color = '#e74c3c';
-                feedback.textContent = '⚠️ Please enter a valid email address.';
-                return;
-            }
-            
-            const phonePattern = /^[\d\s\+\(\)\-]{8,20}$/;
-            if (!phonePattern.test(phone)) {
-                feedback.style.display = 'block';
-                feedback.style.color = '#e74c3c';
-                feedback.textContent = '⚠️ Please enter a valid phone number.';
-                return;
-            }
-            
-            // Submit to Formspree
-            const submitBtn = document.querySelector('#valuationForm button');
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
-            submitBtn.style.opacity = '0.7';
-            
-            const form = document.getElementById('valuationForm');
-            const formData = new FormData(form);
-            
-            fetch('https://formspree.io/f/xbdvqnwe', {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            })
-            .then(response => {
-                if (response.ok) {
+            setTimeout(() => {
+                feedback.style.display = 'none';
+            }, 8000);
+        } else {
+            return response.json().then(data => {
+                if (data.errors) {
                     feedback.style.display = 'block';
-                    feedback.style.color = '#27ae60';
-                    feedback.textContent = '✅ Thank you! David will contact you within 24 hours with your valuation.';
-                    form.reset();
-                    
-                    submitBtn.textContent = originalText;
-                    submitBtn.disabled = false;
-                    submitBtn.style.opacity = '1';
-                    
-                    setTimeout(() => {
-                        feedback.style.display = 'none';
-                    }, 8000);
+                    feedback.style.color = '#e74c3c';
+                    feedback.textContent = data.errors.map(error => error.message).join(', ');
                 } else {
-                    return response.json().then(data => {
-                        if (data.errors) {
-                            feedback.style.display = 'block';
-                            feedback.style.color = '#e74c3c';
-                            feedback.textContent = data.errors.map(error => error.message).join(', ');
-                        } else {
-                            throw new Error('Something went wrong');
-                        }
-                    });
+                    throw new Error('Something went wrong');
                 }
-            })
-            .catch(error => {
-                console.error('Form submission error:', error);
-                feedback.style.display = 'block';
-                feedback.style.color = '#e74c3c';
-                feedback.textContent = '⚠️ Something went wrong. Please try again or call us directly.';
-                
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-                submitBtn.style.opacity = '1';
             });
         }
+    })
+    .catch(error => {
+        console.error('Form submission error:', error);
+        feedback.style.display = 'block';
+        feedback.style.color = '#e74c3c';
+        feedback.textContent = '⚠️ Something went wrong. Please try again or call us directly.';
+        
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = '1';
+    });
+}
 
-        console.log('🏠 The Clifford Group – site loaded.');
-        console.log('📊 Free valuation form ready. Agents: David, Sharon, Scott.');
-    </script>
+console.log('🏠 The Clifford Group – site loaded.');
+console.log('📊 Free valuation form ready. Agents: David, Sharon, Scott.');
+</script>
 </body>
 </html>
